@@ -104,7 +104,7 @@ public class PieFragment extends Fragment implements OnChartValueSelectedListene
     private void setView(){
         pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);
-        pieChart.setExtraOffsets(10, 25, 50, 30);
+        pieChart.setExtraOffsets(3, 15, 50, 20);
         pieChart.setDragDecelerationFrictionCoef(0.95f);
         tf = Typeface.createFromAsset(getActivity().getAssets(), "OpenSans-Regular.ttf");
         
