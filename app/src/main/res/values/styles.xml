@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="actionOverflowMenuStyle">@style/ZHWMenuStyle</item>
+    </style>
+
+    <style name="StatusBarTheme" parent="AppTheme">
+    </style>
+
+
+
+    <style name="bg">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/bg</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="empty_img">
+        <item name="android:layout_width">@dimen/def_height</item>
+        <item name="android:layout_height">@dimen/def_height</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+
+    <style name="PopWindowStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!--<item name="android:colorBackground">@color/grey</item>-->
+        <!--字体和图标的颜色-->
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="PopWindowBackgroundStyle" parent="@style/ThemeOverlay.AppCompat.Light">
+        <item name="actionOverflowMenuStyle">@style/LYJMenuStyle1</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ZHWMenuStyle" parent="@style/Widget.AppCompat.Light.PopupMenu.Overflow">
+        <!--弹出的菜单是否与标题栏重叠-->
+        <item name="overlapAnchor">false</item>
+        <!-- 弹出菜单的背景颜色-->
+        <item name="android:popupBackground">@color/white</item>
+        <!--弹出菜单与标题栏的垂直间距-->
+        <!--<item name="android:dropDownVerticalOffset">51dp</item>-->
+    </style>
+
+    <style name="LYJMenuStyle1" parent="@style/Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+        <item name="android:popupBackground">@android:color/darker_gray</item>
+    </style>
+</resources>

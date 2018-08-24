@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="5dp"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        >
+        <TextView
+            android:id="@+id/month"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="8月"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018年"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            />
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/fuck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_toRightOf="@id/header"
+        android:layout_marginLeft="5dp"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingBottom="5dp"
+            android:layout_weight="1">
+            <TextView
+                android:textColor="@color/red"
+                android:textSize="10sp"
+                android:text="流入"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/liuru"
+                android:textColor="@color/red"
+                android:textSize="10sp"
+                android:text="00.00"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:textColor="@color/cool_green_normal"
+                android:text="流出"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/liuchu"
+                android:textColor="@color/cool_green_normal"
+                android:textSize="10sp"
+                android:text="00.00"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/fuck"
+            android:background="@color/black"
+            android:layout_width="125dp"
+            android:layout_height="0.5dp"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:textSize="10sp"
+        android:text="@string/jieyu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="8dp"
+        />
+    <TextView
+        android:textColor="@color/gray_color"
+        android:id="@+id/count"
+        android:padding="5dp"
+        android:gravity="center"
+        android:text="@string/zhifuzhanghu"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="23dp"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="3dp"
+        android:src="@mipmap/arrow_r"/>
+</RelativeLayout>

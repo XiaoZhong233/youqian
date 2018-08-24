@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:id="@+id/first"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="¥"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+    <gz.scau.zhonghaowei.xiaoshoukuaisuan.View.ScrollTextView
+        android:id="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="00"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/split"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="."
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+
+    <gz.scau.zhonghaowei.xiaoshoukuaisuan.View.ScrollTextView
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingRight="20dp"
+        android:text="00"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

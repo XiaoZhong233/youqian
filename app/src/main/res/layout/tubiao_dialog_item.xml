@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="5dp"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+<ImageView
+    android:layout_margin="5dp"
+    android:id="@+id/diaglog_img"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:text="@string/title"
+        android:id="@+id/dialog_text"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/diaglog_img"/>
+</RelativeLayout>

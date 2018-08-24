@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bottom_navi_color">#808080</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+
+    <color name="color_light_blue">#00DDB6</color>
+    <color name="txt_color">#48495F</color>
+    <color name="item_bg">#FFFFFF</color>
+    <color name="bg">#F0F0F0</color>
+    <color name="spinner_bg">#333244</color>
+    <color name="new_text_color">#555771</color>
+    <color name="white_text_color">#F0F0F0</color>
+    <color name="gray_color">#4b4b58</color>
+    <color name="hard_color">#48495f</color>
+    <color name="clickspan_color">#00ddb6</color>
+    <color name="dull_blue">#3B4BBF</color>
+    <color name="xingHong">#DC143C</color>
+    <color name="red">#ff2121</color>
+    <color name="zumulv">#009874</color>
+    <color name="cool_green_normal">#4caf50</color>
+    <color name="colorBarText">#F0F5E5</color>
+    <color name="count_edit_bg">#FFF68F</color>
+    <color name="item_selecter">#FFD700</color>
+    <color name="Bisque">#FFE4C4</color>
+    <color name="LightGrey">#D3D3D3	</color>
+
+    <color name="blue">#2A8EE3</color>
+    <color name="transparent_gray">#90000000</color>
+    <color name="orange">#FFE8A140</color>
+    <color name="green">#83d383</color>
+    <color name="transBlue">#3F51B5</color>
+</resources>

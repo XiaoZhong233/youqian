@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/query"
+        android:icon="@drawable/ic_find_replace_black_30dp"
+        android:title="检索"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/add_record_icon"
+        android:icon="@mipmap/ic_add"
+        android:title="@string/add_record"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/setting"
+        android:icon="@mipmap/ic_menu"
+        android:title="@string/menu"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/today_item"
+                android:title="今天"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/thisWeek_item"
+                android:title="本周"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/thisMonth_item"
+                android:title="本月"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/last_three_Month"
+                android:title="近三月"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/thisYear_item"
+                android:title="今年"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/GaiLan"
+                android:title="概览"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/total"
+                android:title="总流水"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+</menu>
