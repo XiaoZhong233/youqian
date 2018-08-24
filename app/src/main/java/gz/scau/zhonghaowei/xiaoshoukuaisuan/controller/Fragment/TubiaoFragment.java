@@ -682,16 +682,13 @@ public class TubiaoFragment extends BaseFragment implements OnChartGestureListen
             case "账户支出":
                 updateTuBiao(PieFragment.CHART_TYPE_2td_ZHANGHU,curDateType,RecordLab.RECORD_TYPE.COST);
                 break;
-            case "总支出":
-                break;
             case "分类收入":
                 updateTuBiao(PieFragment.CHART_TYPE_CLASSES, curDateType, RecordLab.RECORD_TYPE.INCOME);
                 break;
             case "账户收入":
                 updateTuBiao(PieFragment.CHART_TYPE_2td_ZHANGHU,curDateType,RecordLab.RECORD_TYPE.INCOME);
                 break;
-            case "总收入":
-                break;
+
         }
     }
 
@@ -755,12 +752,10 @@ public class TubiaoFragment extends BaseFragment implements OnChartGestureListen
                     case 0:
                         secendList.add("分类支出");
                         secendList.add("账户支出");
-                        secendList.add("总支出");
                         break;
                     case 1:
                         secendList.add("分类收入");
                         secendList.add("账户收入");
-                        secendList.add("总收入");
                         break;
                 }
                 secendl.addAll(secendList);
