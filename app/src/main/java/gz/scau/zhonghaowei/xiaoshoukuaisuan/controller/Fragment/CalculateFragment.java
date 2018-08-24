@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -142,6 +143,7 @@ public class CalculateFragment extends BaseFragment implements KeyboardWatcher.O
             aaAdapter.notifyItemChanged(data.size()-1);
         });
         cal_btn.setOnClickListener(view-> {
+            loseAllEditFocus();
             if(aaAdapter.getFooterLayoutCount()==0) {
                 aaAdapter.addFooterView(getResultFootView());
             }else {
@@ -161,6 +163,21 @@ public class CalculateFragment extends BaseFragment implements KeyboardWatcher.O
                 return true;
             }
         });
+    }
+
+
+    private void loseAllEditFocus(){
+        int size = aaAdapter.getItemCount();
+        //加了尾布局可能造成空引用
+        if(aaAdapter.getFooterLayoutCount()>0){
+            size-=1;
+        }
+        for(int i=0;i<size;i++){
+            EditText editText = (EditText) aaAdapter.getViewByPosition(recyclerView,i,R.id.price);
+            if(editText.isFocused()) {
+                editText.clearFocus();
+            }
+        }
     }
 
     private void initAdapter(){
