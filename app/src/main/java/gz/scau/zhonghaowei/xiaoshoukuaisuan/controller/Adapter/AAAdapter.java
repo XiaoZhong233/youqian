@@ -3,6 +3,7 @@ package gz.scau.zhonghaowei.xiaoshoukuaisuan.controller.Adapter;
 import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -22,6 +23,7 @@ public class AAAdapter extends BaseQuickAdapter<AAItem,BaseViewHolder> {
         super(layoutResId, data);
         this.data = data;
     }
+
 
     @Override
     protected void convert(BaseViewHolder helper, AAItem item) {
@@ -46,11 +48,63 @@ public class AAAdapter extends BaseQuickAdapter<AAItem,BaseViewHolder> {
 
             @Override
             public void afterTextChanged(Editable s) {
-                try{
-                    double c=Double.valueOf(s.toString());
-                    item.setPrice(c);
-                }catch (Exception e){
-                    countEdit.getText().clear();
+
+            }
+        });
+
+        countEdit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    String s = countEdit.getText().toString();
+                    try{
+                        double c=Double.valueOf(s.toString());
+                        item.setPrice(c);
+                    }
+                    catch (Exception e1){
+                        try{
+                            String ss = countEdit.getText().toString();
+                            String[] counts = ss.split(",+");
+                            double c = 0d;
+                            if(counts.length>0){
+                                for(int i =0;i<counts.length;i++){
+                                    c += Double.valueOf(counts[i]);
+                                }
+                                item.setPrice(c);
+                                countEdit.setText(String.valueOf(c));
+                            }
+                        }catch (Exception e2){
+                            try {
+                                String ss = countEdit.getText().toString();
+                                String[] counts = ss.split("\\s+");
+                                double c = 0d;
+                                if(counts.length>0){
+                                    for(int i =0;i<counts.length;i++){
+                                        c += Double.valueOf(counts[i]);
+                                    }
+                                    item.setPrice(c);
+                                    countEdit.setText(String.valueOf(c));
+                                }
+                            }catch (Exception e3){
+                                try {
+                                    String ss = countEdit.getText().toString();
+                                    String[] counts = ss.split("，+");
+                                    double c = 0d;
+                                    if(counts.length>0){
+                                        for(int i =0;i<counts.length;i++){
+                                            c += Double.valueOf(counts[i]);
+                                        }
+                                        item.setPrice(c);
+                                        countEdit.setText(String.valueOf(c));
+                                    }
+                                }catch (Exception e4){
+                                    countEdit.getText().clear();
+                                }
+
+                            }
+                        }
+
+                    }
                 }
             }
         });
