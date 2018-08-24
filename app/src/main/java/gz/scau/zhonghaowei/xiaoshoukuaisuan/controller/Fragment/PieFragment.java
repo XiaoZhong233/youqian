@@ -28,6 +28,7 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -109,7 +110,29 @@ public class PieFragment extends Fragment implements OnChartValueSelectedListene
         tf = Typeface.createFromAsset(getActivity().getAssets(), "OpenSans-Regular.ttf");
         
         pieChart.setCenterTextTypeface(Typeface.createFromAsset(getActivity().getAssets(), "OpenSans-Light.ttf"));
-        pieChart.setCenterText(generateCenterSpannableText());
+
+        switch (record_type){
+            case COST:
+                if(curChartType==CHART_TYPE_CLASSES){
+                    pieChart.setCenterText(generateCenterSpannableText("分类支出"));
+
+                }else if(curChartType == CHART_TYPE_2td_ZHANGHU){
+                    pieChart.setCenterText(generateCenterSpannableText("账户支出"));
+
+                }
+                break;
+            case INCOME:
+                if(curChartType==CHART_TYPE_CLASSES){
+                    pieChart.setCenterText(generateCenterSpannableText("分类收入"));
+                }else if(curChartType == CHART_TYPE_2td_ZHANGHU){
+                    pieChart.setCenterText(generateCenterSpannableText("账户收入"));
+                }
+                break;
+                default:
+                    pieChart.setCenterText(generateCenterSpannableText("分类图表"));
+                    break;
+        }
+
 
         //pieChart.setExtraOffsets(20.f, 0.f, 50.f, 0.f);
 
@@ -119,8 +142,8 @@ public class PieFragment extends Fragment implements OnChartValueSelectedListene
         pieChart.setTransparentCircleColor(Color.WHITE);
         pieChart.setTransparentCircleAlpha(110);
 
-        pieChart.setHoleRadius(45f);
-        pieChart.setTransparentCircleRadius(50f);
+        pieChart.setHoleRadius(47f);
+        pieChart.setTransparentCircleRadius(52f);
         pieChart.setCenterTextSize(10f);                //设置PieChart内部圆文字的大小
 
         pieChart.setDrawCenterText(true);
@@ -153,9 +176,9 @@ public class PieFragment extends Fragment implements OnChartValueSelectedListene
 
     }
 
-    private SpannableString generateCenterSpannableText() {
+    private SpannableString generateCenterSpannableText(String ss) {
 
-        SpannableString s = new SpannableString("分类图表\ndeveloped by zhong");
+        SpannableString s = new SpannableString(ss+"\ndeveloped by zhong");
         s.setSpan(new RelativeSizeSpan(1.5f), 0, 4, 0);
         s.setSpan(new StyleSpan(Typeface.NORMAL), 4, s.length() - 18, 0);
         s.setSpan(new ForegroundColorSpan(Color.GRAY), 4, s.length() - 18, 0);
