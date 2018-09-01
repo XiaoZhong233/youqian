@@ -105,6 +105,7 @@ public class QueryResultActivity extends AppCompatActivity {
                 .filter(r-> TimeUtil.belongTimeBucket(r.getDate(),startDate,endDate))
                 .filter(r-> countType.equals("全部") || r.getPay_type().equals(countType))
                 .filter(r-> classes.equals("全部") || r.getClasses().equals(classes))
+                .filter(r-> currentType == TYPE_ALL || (currentType == TYPE_ZHICHU ? r.getCost() < 0 : r.getCost() > 0))
                 .collect(Collectors.toList());
 
         if(recordList != null) {
