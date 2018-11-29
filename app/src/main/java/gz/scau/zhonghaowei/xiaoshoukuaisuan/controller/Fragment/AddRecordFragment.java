@@ -203,8 +203,8 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        count_editText.clearFocus();
-        detail_editText.clearFocus();
+//        count_editText.clearFocus();
+//        detail_editText.clearFocus();
         hideInputMethod(getActivity());
         resetBgColor();
         switch (v.getId()){
@@ -235,7 +235,15 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
 
     private void save(){
         //金额保存
-        float count = Float.valueOf(count_editText.getText().toString());
+        Log.e(TAG, "save: 金额: "+ count_editText.getText().toString());
+        String s = count_editText.getText().toString();
+        float count =0;
+        s=s.trim();
+        try{
+            count = Float.valueOf(s);
+        }catch (Exception e){
+            Log.e(TAG, "save: 金额字符串转换出错 "+s );
+        }
         if(currentType == TYPE_ZHICHU){
             count = -count;
         }else if(currentType == TYPE_SHOURU){
@@ -288,7 +296,7 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                Log.e(TAG, "afterTextChanged: count_editText.getText().toString() "+count_editText.getText().toString() );
             }
         });
 
@@ -304,7 +312,9 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
                 resetBgColor();
                 //输入完后不被归零的条件为不为空并且不等于0
                 if(!count_editText.getText().toString().isEmpty() && Float.valueOf(count_editText.getText().toString())!=0) {
+                    Log.e(TAG, "buildEditText: 改变前"+count_editText.getText().toString() );
                     count_editText.setText(floatToInt(Float.valueOf(count_editText.getText().toString())));
+                    Log.e(TAG, "buildEditText: 改变后"+count_editText.getText().toString() );
                 }else {
                     count_editText.setText("00.00");
                     TastyToast.makeText(getActivity(),"确定金额为0吗？(°Д°)",TastyToast.LENGTH_SHORT, TastyToast.INFO);
