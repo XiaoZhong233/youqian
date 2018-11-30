@@ -66,6 +66,8 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
     private Button submit_button;
     private Date now;
 
+    private float count = 0;
+
     //判断是否是新增记录操作
     private boolean isAdd = true;
     private Record mRecord;
@@ -203,8 +205,8 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-//        count_editText.clearFocus();
-//        detail_editText.clearFocus();
+        count_editText.clearFocus();
+        detail_editText.clearFocus();
         hideInputMethod(getActivity());
         resetBgColor();
         switch (v.getId()){
@@ -222,6 +224,7 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
                 break;
             case R.id.clear_button:
                 count_editText.setText("00.00");
+                this.count = Float.valueOf(count_editText.getText().toString());
                 detail_editText.setText("");
                 break;
             case R.id.submit_button:
@@ -235,21 +238,22 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
 
     private void save(){
         //金额保存
-        Log.e(TAG, "save: 金额: "+ count_editText.getText().toString());
-        String s = count_editText.getText().toString();
-        float count =0;
-        s=s.trim();
-        try{
-            count = Float.valueOf(s);
-        }catch (Exception e){
-            Log.e(TAG, "save: 金额字符串转换出错 "+s );
-        }
+//        Log.e(TAG, "save: 金额: "+ count_editText.getText().toString());
+//        String s = count_editText.getText().toString();
+//        float count =0;
+//        s=s.trim();
+//        try{
+//            count = Float.valueOf(s);
+//        }catch (Exception e){
+//            Log.e(TAG, "save: 金额字符串转换出错 "+s );
+//        }
         if(currentType == TYPE_ZHICHU){
             count = -count;
         }else if(currentType == TYPE_SHOURU){
             //do nothing;
         }
-        mRecord.setCost(count);
+        //金额保存
+        mRecord.setCost(this.count);
         //备注保存
         mRecord.setDetail(detail_editText.getText().toString()==null?"":detail_editText.getText().toString());
         //类别保存
@@ -314,10 +318,12 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
                 if(!count_editText.getText().toString().isEmpty() && Float.valueOf(count_editText.getText().toString())!=0) {
                     Log.e(TAG, "buildEditText: 改变前"+count_editText.getText().toString() );
                     count_editText.setText(floatToInt(Float.valueOf(count_editText.getText().toString())));
+                    this.count = Float.valueOf(count_editText.getText().toString());
                     Log.e(TAG, "buildEditText: 改变后"+count_editText.getText().toString() );
                 }else {
                     count_editText.setText("00.00");
-                    TastyToast.makeText(getActivity(),"确定金额为0吗？(°Д°)",TastyToast.LENGTH_SHORT, TastyToast.INFO);
+                    this.count = Float.valueOf(count_editText.getText().toString());
+                    //TastyToast.makeText(getActivity(),"确定金额为0吗？(°Д°)",TastyToast.LENGTH_SHORT, TastyToast.INFO);
 
                 }
             }
