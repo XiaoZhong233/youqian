@@ -205,8 +205,8 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        count_editText.clearFocus();
-        detail_editText.clearFocus();
+//        count_editText.clearFocus();
+//        detail_editText.clearFocus();
         hideInputMethod(getActivity());
         resetBgColor();
         switch (v.getId()){
@@ -247,6 +247,10 @@ public class AddRecordFragment extends Fragment  implements View.OnClickListener
 //        }catch (Exception e){
 //            Log.e(TAG, "save: 金额字符串转换出错 "+s );
 //        }
+        String s = count_editText.getText().toString();
+        s = floatToInt(Float.valueOf(s));
+        count = Float.valueOf(s);
+
         if(currentType == TYPE_ZHICHU){
             count = -count;
         }else if(currentType == TYPE_SHOURU){
