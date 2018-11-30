@@ -50,7 +50,7 @@ public class AddBudgetActivity extends AppCompatActivity implements View.OnClick
     private int curType=0;
     private float curValue = 0f;
     private Date curDate ;
-
+    private float count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +96,7 @@ public class AddBudgetActivity extends AppCompatActivity implements View.OnClick
         cur_budget_layout.setOnClickListener(this);
         //根据数据初始化
         account_editText.setText(floatToInt(curValue));
+        Log.e(TAG, "setView: text"+account_editText.getText().toString() );
         budget_tv.setText(curType==Budget.MONTH?"月预算":"年预算");
         if(curType==Budget.MONTH){
             budgetLeft_tv.setText(TimeUtil.getMonth(curDate)+"月预算剩余");
@@ -144,15 +145,17 @@ public class AddBudgetActivity extends AppCompatActivity implements View.OnClick
                 resetBgColor();
                 textInputLayout.setBackgroundColor(0x2eFFEC8B);
                 if(!account_editText.getText().toString().isEmpty()){
-                    account_editText.getText().clear();
+                    //account_editText.getText().clear();
                 }
             }else {
                 resetBgColor();
                 //输入完后不被归零的条件为不为空并且不等于0
                 if(!account_editText.getText().toString().isEmpty() && Float.valueOf(account_editText.getText().toString())!=0) {
                     account_editText.setText(floatToInt(Math.abs(Float.valueOf(account_editText.getText().toString()))));
+                    count = Math.abs(Float.valueOf(account_editText.getText().toString()));
                 }else {
                     account_editText.setText("00.00");
+                    count =0;
                 }
             }
         });
@@ -160,7 +163,7 @@ public class AddBudgetActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        account_editText.clearFocus();
+        //account_editText.clearFocus();
         hideInputMethod(this);
         resetBgColor();
         switch (v.getId()){
@@ -180,6 +183,7 @@ public class AddBudgetActivity extends AppCompatActivity implements View.OnClick
             case R.id.submit_button:
                 String type = budget_tv.getText().toString();
                 float value = Float.valueOf(account_editText.getText().toString());
+                //float value = count;
                 if(type.equals("月预算")){
                     budget = new Budget(value,Budget.MONTH);
                 }else if(type.equals("年预算")){
